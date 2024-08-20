@@ -14,6 +14,7 @@ const generatePassword = async (password) => {
 
 async function createUserCtr(req, res) {
   const data = req.body;
+  console.log(data);
   const password = data.password;
   if (data.password.length < 8) {
     res.status(400).send({ msg: "password is too short" });

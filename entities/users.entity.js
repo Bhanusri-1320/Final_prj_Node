@@ -14,12 +14,12 @@ const Users = new Entity(
         required: true,
       },
       password: {
-        type: "number",
+        type: "string",
         required: true,
       },
       roleId: {
         type: "string", // Changed from "number" to "string" for DynamoDB compatibility
-        required: true,
+        // required: true,
       },
     },
     indexes: {
@@ -37,9 +37,4 @@ const Users = new Entity(
   },
   { client, table: "Users" } // Ensure the table name is correct and matches your DynamoDB table
 );
-Users.create({
-  userName: "abcddgfdgdf",
-  password: "123456789",
-  roleId: 0,
-});
 export { Users };

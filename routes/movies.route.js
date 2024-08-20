@@ -17,7 +17,7 @@ router.get("/", getAllMoviesCtr);
 
 router.get("/:id", getMoviebyIdCtr);
 
-router.delete("/:id", deleteMovieCtr);
+router.delete("/:id", auth, deleteMovieCtr);
 
 router.post("/", createMovieCtr);
 
