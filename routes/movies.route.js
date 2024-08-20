@@ -15,12 +15,12 @@ const router = express.Router();
 
 router.get("/", getAllMoviesCtr);
 
-router.get("/:id", auth, authIsAdmin, getMoviebyIdCtr);
+router.get("/:id", getMoviebyIdCtr);
 
-router.delete("/:id", auth, deleteMovieCtr);
+router.delete("/:id", deleteMovieCtr);
 
-router.post("/", auth, createMovieCtr);
+router.post("/", createMovieCtr);
 
-router.put("/:id", auth, updateMovieCtr);
+router.put("/:id", updateMovieCtr);
 
 export default router;
