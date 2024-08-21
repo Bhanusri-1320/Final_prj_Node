@@ -76,6 +76,7 @@ async function updateMovieCtr(request, response) {
       response.status(404).send("No such Movie 🥲");
     }
   } catch (err) {
+    console.log(err);
     response.status(500).send({ msg: "Movie not found" });
   }
 }

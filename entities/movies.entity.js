@@ -25,7 +25,7 @@ const Movies = new Entity(
         type: "string",
       },
       ratings: {
-        type: "number",
+        type: "string",
       },
       synopsis: {
         type: "string",
