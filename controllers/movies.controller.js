@@ -32,7 +32,7 @@ async function getMoviebyIdCtr(request, response) {
 }
 async function deleteMovieCtr(request, response) {
   const { id } = request.params;
-
+  console.log(id);
   try {
     const movie = await getMoviesById(id);
     if (movie.data) {

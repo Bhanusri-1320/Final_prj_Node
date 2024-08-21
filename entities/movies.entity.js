@@ -25,34 +25,34 @@ const Movies = new Entity(
         type: "string",
       },
       ratings: {
-        type: "string",
+        type: "number",
       },
       synopsis: {
         type: "string",
       },
       genre: {
-        type: "list",
+        type: "string",
       },
       director: {
         type: "string",
       },
-      cast: {
-        type: "list",
-        items: {
-          type: "map",
-          properties: {
-            actorId: {
-              type: "string",
-            },
-            name: {
-              type: "string",
-            },
-            profilePic: {
-              type: "string",
-            },
-          },
-        },
-      },
+      // cast: {
+      //   type: "list",
+      //   items: {
+      //     type: "map",
+      //     properties: {
+      //       actorId: {
+      //         type: "string",
+      //       },
+      //       name: {
+      //         type: "string",
+      //       },
+      //       profilePic: {
+      //         type: "string",
+      //       },
+      //     },
+      //   },
+      // },
       releaseDate: {
         type: "string",
       },

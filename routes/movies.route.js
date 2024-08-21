@@ -17,10 +17,10 @@ router.get("/", getAllMoviesCtr);
 
 router.get("/:id", getMoviebyIdCtr);
 
-router.delete("/:id", auth, deleteMovieCtr);
+router.delete("/:id", auth, authIsAdmin, deleteMovieCtr);
 
 router.post("/", createMovieCtr);
 
-router.put("/:id", updateMovieCtr);
+router.put("/:id", auth, updateMovieCtr);
 
 export default router;
