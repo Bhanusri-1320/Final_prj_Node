@@ -5,7 +5,7 @@ const Users = new Entity(
   {
     model: {
       entity: "Users",
-      version: "2", // Ensure this matches your schema version
+      version: "3", // Ensure this matches your schema version
       service: "UsersService",
     },
     attributes: {

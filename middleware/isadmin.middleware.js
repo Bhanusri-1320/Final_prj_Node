@@ -13,13 +13,12 @@ const authIsAdmin = async (request, response, next) => {
     const results = await Session.get({ token: token }).go();
     console.log("results", results);
     const role = await Users.get({ userName: results.data.userName }).go();
-    if (results.data.roleId === ADMIN) {
+    if (role.data.roleId === ADMIN) {
       console.log("role");
       next();
     } else {
       throw new Error("Unauthorized");
     }
-    next();
   } catch (err) {
     response.status(401).send({ msg: err.message });
   }

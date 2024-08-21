@@ -36,23 +36,23 @@ const Movies = new Entity(
       director: {
         type: "string",
       },
-      // cast: {
-      //   type: "list",
-      //   items: {
-      //     type: "map",
-      //     properties: {
-      //       actorId: {
-      //         type: "string",
-      //       },
-      //       name: {
-      //         type: "string",
-      //       },
-      //       profilePic: {
-      //         type: "string",
-      //       },
-      //     },
-      //   },
-      // },
+      cast: {
+        type: "list",
+        items: {
+          type: "map",
+          properties: {
+            actorId: {
+              type: "string",
+            },
+            name: {
+              type: "string",
+            },
+            profilePic: {
+              type: "string",
+            },
+          },
+        },
+      },
       releaseDate: {
         type: "string",
       },

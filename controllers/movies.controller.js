@@ -6,16 +6,35 @@ import {
   deleteMovieById,
   createMovie,
 } from "../services/movies.services.js";
+import { Movies } from "../entities/movies.entity.js";
 
 async function getAllMoviesCtr(request, response) {
   // response.send(movies);
-  try {
-    const allMovies = await getAllMovies();
-    response.status(200).send(allMovies.data);
-  } catch (err) {
-    console.log(err);
-    response.status(500).send({ msg: " Couldn't get what you wanted " });
+  const { search } = request.query;
+  if (!search) {
+    try {
+      const allMovies = await getAllMovies();
+      response.status(200).send(allMovies.data);
+      return;
+    } catch (err) {
+      console.log(err);
+      response.status(500).send({ msg: " Couldn't get what you wanted " });
+    }
   }
+  const filterData = await Movies.scan
+    .where(
+      ({ title, synopsis, language }, { contains }) => `
+      ${contains(title, search)} OR ${contains(language, search)} OR ${contains(
+        synopsis,
+        search
+      )}
+      `
+    )
+    .go();
+
+  console.log(filterData);
+
+  response.send(filterData.data);
 }
 async function getMoviebyIdCtr(request, response) {
   const { id } = request.params;

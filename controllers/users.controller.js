@@ -33,6 +33,7 @@ async function createUserCtr(req, res) {
   const hasheddata = {
     userName: data.userName,
     password: hashedPassword,
+    roleId: "0",
   };
   try {
     await createUser(hasheddata);
