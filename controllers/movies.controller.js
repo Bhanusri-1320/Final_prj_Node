@@ -84,7 +84,9 @@ async function createMovieCtr(req, res) {
 
 async function updateMovieCtr(request, response) {
   const { id } = request.params;
+  console.log("id", id);
   const updateMovie = request.body;
+  console.log(updateMovie);
   try {
     const movie = await getMoviesById(id);
     if (movie.data) {
