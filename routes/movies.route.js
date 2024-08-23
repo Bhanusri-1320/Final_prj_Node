@@ -15,7 +15,7 @@ const router = express.Router();
 
 router.get("/", getAllMoviesCtr);
 
-router.get("/:id", auth, getMoviebyIdCtr);
+router.get("/:id", getMoviebyIdCtr);
 
 router.delete("/:id", auth, authIsAdmin, deleteMovieCtr);
 
