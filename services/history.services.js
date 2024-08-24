@@ -1,3 +1,4 @@
+import { use } from "orm";
 import { History } from "../entities/history.entity.js";
 async function getAllMovies() {
   return await History.scan.go();
@@ -18,9 +19,26 @@ async function getMoviesById(id) {
 //   await History.delete({ movieId: id }).go();
 // }
 async function getUserByname(username) {
-  return await History.get({ userName: username }).go();
+  console.log(username);
+  return await History.scan
+    .where(({ userName }, { eq }) => `${eq(userName, username)}`)
+    .go();
+
+  // .where(
+  //   ({ category }, { eq }) => `
+  //       ${eq(category, "food/coffee")} OR ${eq(category, "spite store")}
+  //   `,
+  // )
+
+  // await StoreLocations.query
+  // .stores({
+  //   cityId: "Atlanta1",
+  //   mallId: "EastPointe",
+  // })
+  // .go();
 }
 async function createHistory(movie) {
+  console.log(movie);
   await History.create(movie).go();
 }
 

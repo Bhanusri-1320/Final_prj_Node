@@ -53,11 +53,11 @@ async function logicUserCtr(req, res) {
   console.log("❤️", data);
   const userFromDB = await getUserByuserName(data.userName);
   console.log(userFromDB);
-  const roleId = userFromDB.data.roleId;
   if (!userFromDB.data) {
     res.status(404).send({ msg: "Invalid Credentials" });
     return;
   } else {
+    const roleId = userFromDB.data.roleId;
     const storedDBPassword = userFromDB.data.password;
     const providedPassword = data.password;
     const isPasswordCheck = await bcrypt.compare(

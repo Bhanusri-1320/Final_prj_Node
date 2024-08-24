@@ -5,6 +5,7 @@ const app = express();
 import userRouter from "./routes/users.route.js";
 import moviesRouter from "./routes/movies.route.js";
 import historyRouter from "./routes/history.route.js";
+import ticketsRouter from "./routes/tickets.route.js";
 
 const PORT = process.env.PORT || 4000;
 app.use(cors());
@@ -15,4 +16,5 @@ app.get("/", function (request, response) {
 app.use("/user", userRouter);
 app.use("/movies", moviesRouter);
 app.use("/history", historyRouter);
+app.use("/tickets", ticketsRouter);
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));

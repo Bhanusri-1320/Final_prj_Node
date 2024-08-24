@@ -9,6 +9,7 @@ import {
   //   createMovie,
 } from "../services/history.services.js";
 import { History } from "../entities/history.entity.js";
+import { use } from "orm";
 
 async function getAllMoviesCtr(request, response) {
   // response.send(movies);
@@ -53,8 +54,10 @@ async function getMoviebyIdCtr(request, response) {
 }
 async function getHistoreyByNameCtr(request, response) {
   const { username } = request.params;
+  console.log(username);
   try {
     const movie = await getUserByname(username);
+    console.log(movie);
     movie.data
       ? response.send(movie.data)
       : response.status(404).send({ msg: "Movie not found" });
@@ -67,6 +70,7 @@ async function createHistoryByNamectr(request, response) {
   console.log(data);
   const addMovie = {
     ...data,
+    historyId: v4(),
   };
   try {
     await createHistory(addMovie);

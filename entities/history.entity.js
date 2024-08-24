@@ -5,10 +5,14 @@ const History = new Entity(
   {
     model: {
       entity: "History",
-      version: "1", // Ensure this matches your schema version
+      version: "3", // Ensure this matches your schema version
       service: "HistoryService",
     },
     attributes: {
+      historyId: {
+        type: "string",
+        required: true,
+      },
       userName: {
         type: "string",
         required: true,
@@ -23,12 +27,15 @@ const History = new Entity(
       date: {
         type: "string",
       },
+      title: {
+        type: "string",
+      },
     },
     indexes: {
       primary: {
         pk: {
           field: "pk",
-          facets: ["userName"],
+          facets: ["historyId"],
         },
         sk: {
           field: "sk",
